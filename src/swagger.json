@@ -1,0 +1,162 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "RentalX Documentation",
+        "description": "This is an API documentation",
+        "version": "1.0.0",
+        "contact": {
+            "email": "armandomarioto@gmail.com"
+        }
+    },
+    "paths":{
+        "/users": {
+            "post":{
+                "tags": ["Users"],
+                "summary": "Create a User",
+                "description": "Create new a User",
+                "requestBody":{
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email":{
+                                        "type": "string"
+                                    }
+                                },
+                                "example":{
+                                    "name": "Armando",
+                                    "email": "armando@example.com"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description":"Create new a user."
+                    },
+                    "500":{
+                        "description":"User already exists."
+                    }
+                }
+            },
+            "get":{
+                "tags":["Users"],
+                "summary":"List all Users",
+                "description": "List all users",
+                "responses":{
+                    "200":{
+                        "description":"Success",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type":"array",
+                                    "items":{
+                                        "type":"object",
+                                        "properties":{
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "email":{
+                                                "type":"string"
+                                            },
+                                            "admin":{
+                                                "type":"boolean"
+                                            },
+                                            "created_at":{
+                                                "type":"string"
+                                            },
+                                            "updated_at":{
+                                                "type":"string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/:user_id/admin":{
+            "patch":{
+                "tags": ["Users"],
+                "summary": "Change admin user",
+                "description": "Change admin user",
+                "requestBody":{
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email":{
+                                        "type": "string"
+                                    }
+                                },
+                                "example":{
+                                    "name": "Armando",
+                                    "email": "armando@example.com"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description":"Create new a user."
+                    },
+                    "500":{
+                        "description":"User already exists."
+                    }
+                }
+            }
+        },
+        "/:user_id":{
+            "get":{
+                "tags":["Users"],
+                "summary":"List all Users",
+                "description": "List all users",
+                "responses":{
+                    "200":{
+                        "description":"Success",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type":"array",
+                                    "items":{
+                                        "type":"object",
+                                        "properties":{
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "email":{
+                                                "type":"string"
+                                            },
+                                            "admin":{
+                                                "type":"boolean"
+                                            },
+                                            "created_at":{
+                                                "type":"string"
+                                            },
+                                            "updated_at":{
+                                                "type":"string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

@@ -18,14 +18,14 @@ describe("ShowUserProfileUseCase", () => {
       email: "danilo@rocketseat.com",
     });
 
-    const findUser = showUserProfileUseCase.execute({ user_id: user.id });
+    const findUser = showUserProfileUseCase.execute(user.id);
 
     expect(findUser).toMatchObject(user);
   });
 
   it("should not be able to show profile of a non existing user", () => {
     expect(() => {
-      showUserProfileUseCase.execute({ user_id: v4() });
+      showUserProfileUseCase.execute(v4());
     }).toThrow();
   });
 });

@@ -33,7 +33,7 @@ describe("ListAllUsersUseCase", () => {
 
     usersRepository.turnAdmin(user1);
 
-    const users = listAllUsersUseCase.execute({ user_id: user1.id });
+    const users = listAllUsersUseCase.execute(user1.id);
 
     expect(users).toEqual(
       expect.arrayContaining([
@@ -49,13 +49,13 @@ describe("ListAllUsersUseCase", () => {
 
   it("should not be able to a non admin user get list of all users", () => {
     expect(() => {
-      listAllUsersUseCase.execute({ user_id: userId });
+      listAllUsersUseCase.execute(userId);
     }).toThrow();
   });
 
   it("should not be able to a non existing user get list of all users", () => {
     expect(() => {
-      listAllUsersUseCase.execute({ user_id: v4() });
+      listAllUsersUseCase.execute(v4());
     }).toThrow();
   });
 });
